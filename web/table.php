@@ -70,25 +70,25 @@
 
 </main><!-- /.container -->
 
-
+<h1>Success!!</h1>
 <div class="mx-auto" style="width: 75rem;">
     <?php
-    require __DIR__ . '/../vendor/autoload.php';
+        require __DIR__ . '/../vendor/autoload.php';
 
+        $queries = array();
+        parse_str($_SERVER['QUERY_STRING'], $queries);
 
-    $pdo = (new SQLiteConnection())->connect();
-    if ($pdo != null)
-        echo 'Connected to the SQLite database successfully!';
-    else
-        echo 'Whoops, could not connect to the SQLite database!';
+        $uploadPath =  $queries['uploadPath'];
+
+        new csvToDatabase($uploadPath);
     ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select CSV to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload CSV" name="submit">
-    </form>
 
 </div>
+
+<form action="index.php" method="post" enctype="multipart/form-data">
+
+    <input type="Submit" value="Back" name="submit">
+</form>
 
 
 <div>
