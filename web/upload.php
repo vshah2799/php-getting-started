@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 <html>
 <body>
 
-<form action="index.php" method="post" enctype="multipart/form-data">
+<form action="../index.php" method="post" enctype="multipart/form-data">
 
     <input type="Submit" value="Back" name="submit">
 </form>
